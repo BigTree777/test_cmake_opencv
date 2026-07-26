@@ -1,0 +1,28 @@
+{
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "[Debug] OpenCVExample",    // 表示名
+            "type": "cppdbg",                   // 使用するデバッガ, Windowsならcppvsdbg
+            "request": "launch",                // プログラムの起動+デバッグ
+            "cwd": "${workspaceFolder}",        // 実行ディレクトリ
+            "args": [],                         // 実行ファイルに渡す引数
+            "stopAtEntry": false,               // ブレークポイントなどのためにソースマップを有効にする
+            "environment": [],
+            "miDebuggerPath": "/usr/bin/gdb",  // デバッガの実行ファイルを指定
+            "program": "${workspaceFolder}/build/Debug/OpenCVExample", // 実行ファイルの絶対パス
+            // デバッガに渡す引数
+            "setupCommands": [
+                {
+                    "description": "GDBで自動フォーマット有効化",   // 説明文 (デバッガには渡されない)
+                    "text": "-enable-pretty-printing",              // コマンドに渡す引数
+                    "ignoreFailures": false                         // 失敗したら停止
+                }
+            ],
+            "preLaunchTask": "[Debug] Build OpenCVExample" // 実行前に tasks.json のタスクを実行
+        }
+    ]
+}

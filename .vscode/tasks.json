@@ -1,0 +1,61 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "[Debug] CMake OpenCVExample", // タスク名
+            "type": "shell",                        // シェルコマンドとして実行
+            "command": "cmake",
+            "args": [
+              "-B", "build/Debug",
+              "-D", "CMAKE_BUILD_TYPE=Debug"
+            ],
+            "options": {
+                "cwd":"${workspaceFolder}"
+            },
+            "dependsOn":[],
+            "dependsOrder": "sequence",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            // 出力ウィンドウの表示モード
+            "presentation": {
+                "echo": true,              // 実行コマンドを表示
+                "reveal": "always",        // ターミナルを常に表示
+                "focus": false,            // フォーカスは奪わない（開くだけ）
+                "panel": "shared",         // ターミナルを共有（毎回作らない）
+                "showReuseMessage": true,  // 再利用メッセージを表示
+                "clear": true              // タスク開始時に出力クリア
+            },
+        },
+        {
+            "label": "[Debug] Build OpenCVExample",     // タスク名
+            "type": "shell",                            // シェルコマンドとして実行
+            "command": "make",
+            "args": [],
+            "options": {
+                "cwd":"${workspaceFolder}/build/Debug"
+            },
+            // 本体実行前に実行するタスク
+            "dependsOn":[
+                "[Debug] CMake OpenCVExample"
+            ],
+            "dependsOrder": "sequence", // dependsOnに記載されたタスクを順番に実行, デフォルトはparallel
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            // 出力ウィンドウの表示モード
+            "presentation": {
+                "echo": true,              // 実行コマンドを表示
+                "reveal": "always",        // ターミナルを常に表示
+                "focus": false,            // フォーカスは奪わない（開くだけ）
+                "panel": "shared",         // ターミナルを共有（毎回作らない）
+                "showReuseMessage": true,  // 再利用メッセージを表示
+                "clear": true              // タスク開始時に出力クリア
+            }
+        }
+    ]
+}
