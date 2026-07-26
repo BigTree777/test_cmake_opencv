@@ -5,6 +5,7 @@ OSはUbuntuとする
 VSCodeを用いたデバッグも可能
 
 ## 環境構築
+
 - OS: Ubuntu
 - 以下のコマンドを実行
 ```shell
@@ -13,8 +14,9 @@ VSCodeを用いたデバッグも可能
 ```
 
 ## コマンドによるビルドと実行
+
 ```shell
-cd /path/to/TestCMake
+cd /path/to/test_cmake_opencv
 
 # Releaseモード
 cmake -B build/Release -D CMAKE_BUILD_TYPE=Release
@@ -30,5 +32,6 @@ make
 ```
 
 ## VSCodeを使ったデバッグ
-1. VSCodeからTestCMakeを開く
+
+1. VSCodeからtest_cmake_opencvを開く
 2. `実行とデバッグ` -> "[Debug] OpenCVExample"を実行
